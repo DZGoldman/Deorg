@@ -34,7 +34,7 @@ contract Deorg {
         return true;
     }   
 
-    function claimBounty(uint bountyIndex) public  ensureBountyExists(bountyIndex) returns(bool)  {
+    function claimBounty(uint bountyIndex) public  virtual ensureBountyExists(bountyIndex) returns(bool)  {
         DeorgBounty memory deorgBounty = deorgBounties[bountyIndex];
         require(block.number > deorgBounty.deadlineBlockNumber, "TOO_SOON_BRO");
 
