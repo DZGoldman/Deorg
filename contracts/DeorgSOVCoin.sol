@@ -18,7 +18,6 @@ contract DeorgSOV is ERC20 {
 
     function mintDeorgReward(address[] memory beneficiaries) public onlyFromDeorg returns(bool)  {
         require(beneficiaries.length > 0, "NEED_BENEFICIARIES");
-        // uint rewardPerBenficiary = (supplyCap - totalSupply) * 0.1 / beneficiaries.length;
         uint rewardPerBenficiary = (supplyCap - totalSupply()) * 1/(10 * beneficiaries.length);
         for (uint256 i = 0; i < beneficiaries.length; i++) {
             _mint(beneficiaries[i], rewardPerBenficiary);
